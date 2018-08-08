@@ -28,5 +28,5 @@ app.use('/tacos', tacoController)
 app.use('/auth/login', authController)
 
 app.listen(9000, () => {
-  console.log('listening on port 9000')
+  console.log('TACO APP API listening on port 9000')
 })

@@ -6,17 +6,17 @@ const Taco = require('../models/taco')
 //INDEX
 router.get('/', async (req, res) => {
   console.log(req.session, 'this is get all')
-    try {
-      const allTacos = await Taco.find()
+  try {
+    const allTacos = await Taco.find()
 
-      res.json({
-        status: 200,
-        data: allTacos
-      })
+    res.json({
+      status: 200,
+      data: allTacos
+    })
 
-    } catch(err) {
-      res.send(err)
-    }
+  } catch(err) {
+    res.send(err)
+  }
 })
 
 //NEW
