@@ -25,7 +25,7 @@ const tacoController = require('./controllers/tacoController')
 const authController = require('./controllers/authController')
 
 app.use('/tacos', tacoController)
-app.use('/login', authController)
+app.use('/auth/login', authController)
 
 app.listen(9000, () => {
   console.log('listening on port 9000')
