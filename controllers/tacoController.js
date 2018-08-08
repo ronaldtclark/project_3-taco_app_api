@@ -66,6 +66,29 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+
+// UPVOTE get, print, save
+router.put('/:id/upvote', async (req, res) => {
+  try {
+    const upVotedTaco = await Taco.findById(req.params.id)
+    console.log(upVotedTaco)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
+
+// DOWNVOTE
+router.put('/:id/downvote', async (req, res) => {
+  try {
+    const downVotedTaco = await Taco.findById
+    console.log(downVotedTaco)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
+
 //DELETE
 router.delete(':/id', async (req, res) => {
   try {
@@ -79,7 +102,7 @@ router.delete(':/id', async (req, res) => {
   } catch(err) {
     res.send(err)
   }
-})
+});
 
 
 module.exports = router
