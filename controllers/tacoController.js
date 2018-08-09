@@ -70,14 +70,20 @@ router.put('/:id', async (req, res) => {
 // UPVOTE get, print, save
 router.put('/:id/upvote', async (req, res) => {
   try {
-    const upVotedTaco = await Taco.findById(req.params.id)
+    // find a taco in the database using our mongoose model
+    // store it in a variable called upVotedTaco
+    const upVotedTaco = await Taco.findById(req.params.id, req.body, {new: true})
+    // increase rating
+    upVotedTaco.rating++
+    const data = await upVotedTaco.save()
+
     // Get upVotedTaco's rating and add 1 upVotedTaco.rating
     // const newRating
     // Get update upVoted tacos rating using findByIdAndUpdate
     // const updatedTaco
     // Res.send the updated instance using {new: true} in the findByIdAndUpdate
     
-    res.send(updatedTaco)
+    res.json(upVotedTaco)
   } catch(err) {
     res.send(err)
   }
@@ -87,9 +93,10 @@ router.put('/:id/upvote', async (req, res) => {
 // DOWNVOTE
 router.put('/:id/downvote', async (req, res) => {
   try {
-    const downVotedTaco = await Taco.findByIdAndUpdate(req.params.id)
-    console.log(downVotedTaco)
-    res.send(updatedTaco)
+    const downVotedTaco = await Taco.findById(req.params.id, req.body, {new: true})
+    downVotedTaco.rating--
+    const data = await downVotedTaco.save()
+    res.json(downVotedTaco)
   } catch(err) {
     res.send(err)
   }
