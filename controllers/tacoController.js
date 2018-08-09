@@ -119,22 +119,24 @@ router.delete(':/id', async (req, res) => {
   }
 });
 
-
+router.get('/search/:restaurantname', (req, res) => {
+  
 //SEARCH
   request 
-    .get ("https://api.yelp.com/v3/businesses/search?term=tacos&location=Chicago")    
-    .set ('Authorization', 'Bearer gr0amugCLWzgKkSCIgPZnPI8e7cRXFuEprIOGszYzUIo9JH5kWT1LMMZUkIW0tOBpywUrjmxns-zKDh5FoGsj4_SPNZG_-WDeGAzOCESd0wG9ZX5tUOXIRo4H2poW3Yx')
-    .end (function (err, response){ 
+    .get("https://api.yelp.com/v3/businesses/search?term=" + req.params.restaurantname + "&location=Chicago")    
+    .set('Authorization', 'Bearer gr0amugCLWzgKkSCIgPZnPI8e7cRXFuEprIOGszYzUIo9JH5kWT1LMMZUkIW0tOBpywUrjmxns-zKDh5FoGsj4_SPNZG_-WDeGAzOCESd0wG9ZX5tUOXIRo4H2poW3Yx')
+    .end((err, response) => { 
       if (err) {
         console.log(err)
       } else {
-        console.log(
-        res.json({
-          status: 200,
-          data: response
-        })
+        res.json(JSON.parse(response.text))
+        // res.json({
+        //   status: 200,
+        //   data: response
+        // })
       }
     })
+})
 
 
 module.exports = router
