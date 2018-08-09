@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 const tacoSchema = new mongoose.Schema({
   name: String,
   restaurant: String,
-  rating: Number,
+  rating: {
+    type: Number,
+    default: 0
+  },
   comments: [String] 
 })
 
