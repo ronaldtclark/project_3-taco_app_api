@@ -4,7 +4,10 @@ const tacoSchema = new mongoose.Schema({
   name: String,
   restaurant: String,
   price: String,
-  rating: Number,
+  rating: {
+    type: Number,
+    default: 0
+  },
   comments: [String] 
 })
 
