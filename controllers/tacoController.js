@@ -76,6 +76,7 @@ router.put('/:id/upvote', async (req, res) => {
     // increase rating
     upVotedTaco.rating++
     const data = await upVotedTaco.save()
+    const allTacos = await Taco.find({})
 
     // Get upVotedTaco's rating and add 1 upVotedTaco.rating
     // const newRating
@@ -83,7 +84,7 @@ router.put('/:id/upvote', async (req, res) => {
     // const updatedTaco
     // Res.send the updated instance using {new: true} in the findByIdAndUpdate
     
-    res.json(upVotedTaco)
+    res.json(allTacos)
   } catch(err) {
     res.send(err)
   }
@@ -96,7 +97,8 @@ router.put('/:id/downvote', async (req, res) => {
     const downVotedTaco = await Taco.findById(req.params.id, req.body, {new: true})
     downVotedTaco.rating--
     const data = await downVotedTaco.save()
-    res.json(downVotedTaco)
+    const allTacos = await Taco.find({})
+    res.json(allTacos)
   } catch(err) {
     res.send(err)
   }
