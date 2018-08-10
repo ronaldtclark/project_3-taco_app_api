@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://ctdb.herokuapp.com/',
   credentials: true,
   optionsSuccessStatus: 200
 }
