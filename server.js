@@ -4,7 +4,10 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const session = require('express-session')
 
+const PORT = process.env.PORT || 9000;
+
 require('./db/db')
+
 app.use(session({
   secret: 'secret',
   resave: false,
@@ -27,6 +30,6 @@ const authController = require('./controllers/authController')
 app.use('/tacos', tacoController)
 app.use('/auth/login', authController)
 
-app.listen(9000, () => {
-  console.log('TACO APP API listening on port 9000')
+app.listen(PORT, () => {
+  console.log('TACO APP API listening on port', PORT)
 })
