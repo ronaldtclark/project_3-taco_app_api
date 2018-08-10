@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 const corsOptions = {
-  origin: 'https://ctdb.herokuapp.com/',
+  origin: 'https://immense-hamlet-38483.herokuapp.com/',
   credentials: true,
   optionsSuccessStatus: 200
 }
