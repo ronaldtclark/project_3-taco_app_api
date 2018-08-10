@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const mongoUri = process.env.MONGODG_URI || 'mongodb://localhost:27017/tacos'
 
 mongoose.connect('mongodb://localhost/tacos')
 
@@ -13,3 +14,4 @@ mongoose.connection.on('error', (err) => {
 mongoose.connection.on('disconnected', () => {
   console.log('mongoose is disconnected')
 })
+
