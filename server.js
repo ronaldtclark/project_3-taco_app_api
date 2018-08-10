@@ -31,5 +31,7 @@ app.use('/tacos', tacoController)
 app.use('/auth/login', authController)
 
 app.listen(PORT, () => {
+
   console.log('TACO APP API listening on port', PORT)
+
 })
