@@ -107,7 +107,7 @@ router.put('/:id/downvote', async (req, res) => {
 
 
 //DELETE
-router.delete(':/id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const deletedTaco = await Taco.findByIdAndRemove(req.params.id)
 
@@ -123,9 +123,9 @@ router.delete(':/id', async (req, res) => {
 
 
 
+//SEARCH
 router.get('/search/:restaurantname', (req, res) => {
   
-//SEARCH
   request 
     .get("https://api.yelp.com/v3/businesses/search?term=" + req.params.restaurantname + "&location=Chicago")    
     .set('Authorization', 'Bearer gr0amugCLWzgKkSCIgPZnPI8e7cRXFuEprIOGszYzUIo9JH5kWT1LMMZUkIW0tOBpywUrjmxns-zKDh5FoGsj4_SPNZG_-WDeGAzOCESd0wG9ZX5tUOXIRo4H2poW3Yx')

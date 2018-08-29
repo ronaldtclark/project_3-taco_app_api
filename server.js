@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const session = require('express-session')
 
-const PORT = process.env.PORT || 9000;
+const PORT = 8000;
 
 require('./db/db')
 
@@ -17,12 +17,13 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-const corsOptions = {
-  origin: 'https://immense-hamlet-38483.herokuapp.com',
-  credentials: true,
-  optionsSuccessStatus: 200
-}
-app.use(cors(corsOptions))
+// const corsOptions = {
+//   origin: 'https://immense-hamlet-38483.herokuapp.com',
+//   credentials: true,
+//   optionsSuccessStatus: 200
+// }
+// app.use(cors(corsOptions))
+app.use(cors())
 
 const tacoController = require('./controllers/tacoController')
 const authController = require('./controllers/authController')
