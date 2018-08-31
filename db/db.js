@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/tacos')
+mongoose.connect('mongodb://localhost/tacoApp')
 
 
 mongoose.connection.on('connected', () => {

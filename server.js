@@ -17,19 +17,20 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-// const corsOptions = {
-//   origin: 'https://immense-hamlet-38483.herokuapp.com',
-//   credentials: true,
-//   optionsSuccessStatus: 200
-// }
-// app.use(cors(corsOptions))
-app.use(cors())
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions))
+// app.use(cors())
 
 const tacoController = require('./controllers/tacoController')
 const authController = require('./controllers/authController')
 
 app.use('/tacos', tacoController)
-app.use('/auth/login', authController)
+app.use('/auth', authController)
+
 
 app.listen(PORT, () => {
 
